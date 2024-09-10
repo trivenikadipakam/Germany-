@@ -1,0 +1,64 @@
+import org.testng.annotations.Test;
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver
+
+public class NewTest {
+  @Test
+  public void success() throws Exception {
+	  WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+		driver.get("https://app.germanyiscalling.com/common/login/");
+		System.out.println(driver.getTitle());
+		WebElement uname= driver.findElement(By.id("username"));
+		 uname.sendKeys("kadipakamtriveni1999@gmail.com");
+		 WebElement password=driver.findElement(By.id("password"));
+		 password.sendKeys("Triveni1#");
+		 WebElement login=driver.findElement(By.xpath("//button[@class='btn btn-danger mt-3']"));
+		 login.click();
+		 Thread.sleep(5000);
+		 driver.quit();
+		 
+  }
+  @Test
+  public void unsuccess() throws Exception {
+	  WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+		driver.get("https://app.germanyiscalling.com/common/login/");
+		System.out.println(driver.getTitle());
+		WebElement uname= driver.findElement(By.id("username"));
+		 uname.sendKeys("kadipakamtriveni@gmail.com");
+		 WebElement password=driver.findElement(By.id("password"));
+		 password.sendKeys("Trive");
+		 WebElement login=driver.findElement(By.xpath("//button[@class='btn btn-danger mt-3']"));
+		 login.click();
+		 Thread.sleep(5000);
+		 driver.quit();
+  }
+		 
+		 @Test
+		  public void empty() throws Exception {
+			  WebDriver driver=new ChromeDriver();
+				driver.manage().window().maximize();
+				driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+				driver.get("https://app.germanyiscalling.com/common/login/");
+				System.out.println(driver.getTitle());
+				WebElement uname= driver.findElement(By.id("username"));
+				 uname.sendKeys("");
+				 WebElement password=driver.findElement(By.id("password"));
+				 password.sendKeys("Trive");
+				 WebElement login=driver.findElement(By.xpath("//button[@class='btn btn-danger mt-3']"));
+				 login.click();
+				 Thread.sleep(5000);
+				 driver.quit();
+		 
+
+}
+}
